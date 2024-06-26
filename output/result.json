@@ -1,0 +1,17 @@
+{
+  "logging": {
+    "num_cons": 3,
+    "num_vars": 4,
+    "solver_type": "CBC",
+    "obj_value": 47.0,
+    "opt_status": "OPTIMAL",
+    "solution_time": 0.007381916046142578
+  },
+  "pattern_ordered": {
+    "1": 12.0,
+    "2": 20.0,
+    "3": 0.0,
+    "4": 15.0
+  },
+  "waste": 60.0
+}
