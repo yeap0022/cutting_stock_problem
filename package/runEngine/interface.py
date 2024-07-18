@@ -7,7 +7,7 @@ class modData(object):
     def __init__(self, file_name: str = None):
         self._file_name = file_name
 
-        self._read_file()
+        self.readFile()
         
     def __str__(self):
         return "modData"
@@ -16,7 +16,7 @@ class modData(object):
     def file_name(self):
         return self._file_name
     
-    def _read_file(self):
+    def readFile(self):
         try:
             input_path = self._file_name
             file_name = os.fsdecode(input_path)
@@ -72,7 +72,7 @@ class modWriter(object):
         self._solution = solution
         self._output = output
             
-    def to_result(self, file_out: str = None):
+    def outResult(self, file_out: str = None):
        """Write the soluton to json file with the input data."""
        try:
            solution = self._solution

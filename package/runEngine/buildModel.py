@@ -28,24 +28,24 @@ class modBuilder(object):
     def build(self):
         time_s = timeit.default_timer()
         
-        self._add_var()
-        self._add_con()
-        self._add_obj()
-        self._set_obj()
+        self.addVar()
+        self.addCon()
+        self.addObj()
+        self.setObj()
         
         time_e = timeit.default_timer()
         self._run_time = round(time_e - time_s, 4)
         
         return self
     
-    def _add_var(self):
+    def addVar(self):
         model = self.model
         
         self.var = dict({
             "pattern": {
                 i: model.Int_var(lb=0, ub=INF, name="") for i in self.patternList}})
     
-    def _add_con(self):
+    def addCon(self):
         model = self.model
         data = self.data
         v = self.var
@@ -53,14 +53,14 @@ class modBuilder(object):
         for i in self.orderList:
             model.Constr(sum([data.cut[i][j] * v["pattern"][j] for j in self.patternList]) >= data.order["number_ordered"][i])
                     
-    def _add_obj(self):
+    def addObj(self):
         v = self.var
         
         self.obj = dict({
             "quantity": sum([v["pattern"][i] for i in self.patternList]),
             })
     
-    def _set_obj(self):
+    def setObj(self):
         cost = 0
         
         for key, item in self.obj.items():

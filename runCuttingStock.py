@@ -12,10 +12,10 @@ def main_execution(file_in: str = None, file_out: str = None):
     mod_output = None # doe_output
     
     # 1. read data
-    mod_data = runEngine.modData(file_name=file_in)._read_file() # opt_data runEngine.OptData
+    mod_data = runEngine.modData(file_name=file_in).readFile() # opt_data runEngine.OptData
     
     # 2. create model instance
-    model = runEngine.Model(solver_type="CBC").generate_model() # opt_model runEngine.OptModel
+    model = runEngine.Model(solver_type="CBC").generateModel() # opt_model runEngine.OptModel
     
     # 3. create problem instance: add constraints and objective function
     mod_builder = runEngine.modBuilder(obj_data=mod_data, output=None, obj_mod=model).build() # opt_builder runEngine.OptBuilder
@@ -24,7 +24,7 @@ def main_execution(file_in: str = None, file_out: str = None):
     mod_solver.solveOpt(mod_builder).getSolution(mod_builder) # opt_solver opt_builder
     
     # 5. output to file
-    dt_out = runEngine.modWriter(data=mod_data, solution=mod_solver, output=mod_output).to_result(file_out=file_out)
+    dt_out = runEngine.modWriter(data=mod_data, solution=mod_solver, output=mod_output).outResult(file_out=file_out)
     
     return dt_out
 

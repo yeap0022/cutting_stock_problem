@@ -6,7 +6,7 @@ class Model(object):
             "time_limit": 60
             }
     
-    def generate_model(self):
+    def generateModel(self):
         solver_type = self.params["solver_type"]
         
         if solver_type == "CBC":

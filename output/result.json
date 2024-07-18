@@ -5,7 +5,7 @@
     "solver_type": "CBC",
     "obj_value": 47.0,
     "opt_status": "OPTIMAL",
-    "solution_time": 0.007381916046142578
+    "solution_time": 0.0074100494384765625
   },
   "pattern_ordered": {
     "1": 12.0,
